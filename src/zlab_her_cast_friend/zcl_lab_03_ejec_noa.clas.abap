@@ -49,7 +49,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_03_ejec_noa IMPLEMENTATION.
+CLASS ZCL_LAB_03_EJEC_NOA IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -62,20 +62,32 @@ CLASS zcl_lab_03_ejec_noa IMPLEMENTATION.
     obtener_capital_empresa( io_out = out ).
   ENDMETHOD.
 
-  METHOD process_inheritance.
-    DATA(lo_system) = NEW zcl_lab_12_linux_noa( ).
-    lo_system->get_architecture( IMPORTING ev_architecture = DATA(lv_architecture) ).
-    io_out->write( |Arquitectura detectada: { lv_architecture }| ).
+
+  METHOD obtener_capital_empresa.
+    DATA(lo_company) = NEW zcl_lab_23_company_noa( iv_capital = 500000 ).
+    DATA(lo_collab) = NEW zcl_lab_25_collaborator_noa( ).
+    DATA(lv_capital) = lo_collab->get_capital( io_company = lo_company ).
+    io_out->write( |Capital obtenido desde el colaborador: { lv_capital }| ).
   ENDMETHOD.
 
-  METHOD process_view_grid.
-    DATA(lo_grid) = NEW zcl_lab_14_grid_noa(
-                      iv_view_type = 'FULLSCREEN'
-                      iv_box       = 'BOX_A' ).
 
-    io_out->write( |Tipo de vista: { lo_grid->get_view_type( ) }| ).
-    io_out->write( |Nombre de caja: { lo_grid->get_box( ) }| ).
+  METHOD process_animal.
+    DATA lo_animal TYPE REF TO zcl_lab_18_animal_noa.
+    lo_animal = NEW zcl_lab_19_lion( ).
+
+    DATA(lv_text) = lo_animal->walk( ).
+
+    io_out->write( |¿Quién anda? { lv_text }| ).
   ENDMETHOD.
+
+
+  METHOD process_company_capital.
+    DATA(lo_company) = NEW zcl_lab_23_company_noa( iv_capital = 1000000 ).
+    DATA(lo_partner) = NEW zcl_lab_24_partner_noa( ).
+    DATA(lv_capital) = lo_partner->get_company_capital( io_company = lo_company ).
+    io_out->write( |Capital de la empresa: { lv_capital }| ).
+  ENDMETHOD.
+
 
   METHOD process_flight_prices.
 
@@ -103,14 +115,23 @@ CLASS zcl_lab_03_ejec_noa IMPLEMENTATION.
     io_out->write( |Precio con 20% descuento: { lo_super->mt_flights[ 1 ]-price }| ).
   ENDMETHOD.
 
-  METHOD process_animal.
-    DATA lo_animal TYPE REF TO zcl_lab_18_animal_noa.
-    lo_animal = NEW zcl_lab_19_lion( ).
 
-    DATA(lv_text) = lo_animal->walk( ).
-
-    io_out->write( |¿Quién anda? { lv_text }| ).
+  METHOD process_inheritance.
+    DATA(lo_system) = NEW zcl_lab_12_linux_noa( ).
+    lo_system->get_architecture( IMPORTING ev_architecture = DATA(lv_architecture) ).
+    io_out->write( |Arquitectura detectada: { lv_architecture }| ).
   ENDMETHOD.
+
+
+  METHOD process_view_grid.
+    DATA(lo_grid) = NEW zcl_lab_14_grid_noa(
+                      iv_view_type = 'FULLSCREEN'
+                      iv_box       = 'BOX_A' ).
+
+    io_out->write( |Tipo de vista: { lo_grid->get_view_type( ) }| ).
+    io_out->write( |Nombre de caja: { lo_grid->get_box( ) }| ).
+  ENDMETHOD.
+
 
   METHOD test_classroom_creation.
     " ❌ Esto no compilará: CREATE PROTECTED impide crear instancias aquí
@@ -122,20 +143,4 @@ CLASS zcl_lab_03_ejec_noa IMPLEMENTATION.
 
     io_out->write( 'Instancia válida desde clase hija realizada.' ).
   ENDMETHOD.
-
-  METHOD process_company_capital.
-    DATA(lo_company) = NEW zcl_lab_23_company_noa( iv_capital = 1000000 ).
-    DATA(lo_partner) = NEW zcl_lab_24_partner_noa( ).
-    DATA(lv_capital) = lo_partner->get_company_capital( io_company = lo_company ).
-    io_out->write( |Capital de la empresa: { lv_capital }| ).
-  ENDMETHOD.
-
-  METHOD obtener_capital_empresa.
-    DATA(lo_company) = NEW zcl_lab_23_company_noa( iv_capital = 500000 ).
-    DATA(lo_collab) = NEW zcl_lab_25_collaborator_noa( ).
-    DATA(lv_capital) = lo_collab->get_capital( io_company = lo_company ).
-    io_out->write( |Capital obtenido desde el colaborador: { lv_capital }| ).
-  ENDMETHOD.
-
-
 ENDCLASS.

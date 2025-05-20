@@ -8,10 +8,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_21_classroom_noa IMPLEMENTATION.
+CLASS ZCL_LAB_21_CLASSROOM_NOA IMPLEMENTATION.
+
 
   METHOD constructor.
     " Aquí podría haber lógica si se requiere
   ENDMETHOD.
-
 ENDCLASS.

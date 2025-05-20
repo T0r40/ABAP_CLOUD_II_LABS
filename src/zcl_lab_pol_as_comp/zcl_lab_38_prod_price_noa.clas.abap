@@ -1,0 +1,12 @@
+CLASS zcl_lab_38_prod_price_noa DEFINITION
+  PUBLIC
+  CREATE PUBLIC.
+
+  PUBLIC SECTION.
+    DATA: price TYPE i.
+ENDCLASS.
+
+
+
+CLASS zcl_lab_38_prod_price_noa IMPLEMENTATION.
+ENDCLASS.

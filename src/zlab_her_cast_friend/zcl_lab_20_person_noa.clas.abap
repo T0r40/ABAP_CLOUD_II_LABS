@@ -14,10 +14,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_20_person_noa IMPLEMENTATION.
+CLASS ZCL_LAB_20_PERSON_NOA IMPLEMENTATION.
+
 
   METHOD set_name.
     me->name = iv_name.
   ENDMETHOD.
-
 ENDCLASS.

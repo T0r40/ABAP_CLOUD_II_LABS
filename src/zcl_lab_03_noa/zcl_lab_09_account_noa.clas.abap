@@ -18,14 +18,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_09_account_noa IMPLEMENTATION.
+CLASS ZCL_LAB_09_ACCOUNT_NOA IMPLEMENTATION.
 
-  METHOD set_iban.
-    me->iban = iban.
-  ENDMETHOD.
 
   METHOD get_iban.
     iban = me->iban.
   ENDMETHOD.
 
+
+  METHOD set_iban.
+    me->iban = iban.
+  ENDMETHOD.
 ENDCLASS.

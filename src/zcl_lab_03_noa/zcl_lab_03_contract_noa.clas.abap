@@ -17,11 +17,12 @@ CLASS zcl_lab_03_contract_noa DEFINITION
     DATA: client TYPE string.
 ENDCLASS.
 
-CLASS zcl_lab_03_contract_noa IMPLEMENTATION.
+
+
+CLASS ZCL_LAB_03_CONTRACT_NOA IMPLEMENTATION.
+
 
   METHOD set_creation_date.
     creation_date = iv_creation_date.
   ENDMETHOD.
-
 ENDCLASS.
-

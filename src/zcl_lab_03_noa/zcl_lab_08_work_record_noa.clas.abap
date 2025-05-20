@@ -20,7 +20,10 @@ CLASS zcl_lab_08_work_record_noa DEFINITION
       surname    TYPE string.
 ENDCLASS.
 
-CLASS zcl_lab_08_work_record_noa IMPLEMENTATION.
+
+
+CLASS ZCL_LAB_08_WORK_RECORD_NOA IMPLEMENTATION.
+
 
   METHOD open_new_record.
     date       = iv_date.
@@ -31,6 +34,4 @@ CLASS zcl_lab_08_work_record_noa IMPLEMENTATION.
       surname = iv_surname.
     ENDIF.
   ENDMETHOD.
-
 ENDCLASS.
-

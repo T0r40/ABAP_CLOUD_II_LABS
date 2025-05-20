@@ -50,7 +50,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_01_ejec_noa IMPLEMENTATION.
+CLASS ZCL_LAB_01_EJEC_NOA IMPLEMENTATION.
+
+
+  METHOD display_constants.
+    io_out->write( |Constante 1: { zcl_lab_06_elements_noa=>c_type_aircraft }| ).
+    io_out->write( |Constante 2: { zcl_lab_06_elements_noa=>c_type_passenger }| ).
+    io_out->write( |Constante 3: { zcl_lab_06_elements_noa=>c_type_flight }| ).
+    io_out->write( |Constante 4: { zcl_lab_06_elements_noa=>c_type_gate }| ).
+  ENDMETHOD.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -63,28 +71,20 @@ CLASS zcl_lab_01_ejec_noa IMPLEMENTATION.
     process_account( io_out = out ).
   ENDMETHOD.
 
-  METHOD process_person.
-    DATA(lo_person) = NEW zcl_lab_04_person( ).
-    lo_person->set_age( im_age = 25 ).
 
-    DATA(lv_age) = 0.
-    lo_person->get_age( IMPORTING ex_age = lv_age ).
+  METHOD process_account.
+    DATA(lo_account) = NEW zcl_lab_09_account_noa( ).
 
-    io_out->write( |Edad de la persona: { lv_age }| ).
+    " Establecer IBAN
+    lo_account->set_iban( iban = 'DE44500105175407324931' ).
+
+    " Obtener IBAN
+    DATA lv_iban TYPE string.
+    lo_account->get_iban( IMPORTING iban = lv_iban ).
+
+    io_out->write( |IBAN almacenado: { lv_iban }| ).
   ENDMETHOD.
 
-  METHOD process_flight_check.
-    DATA(lo_flight) = NEW zcl_lab_05_flight_noa( ).
-    DATA(lv_result) = lo_flight->check_flight_exists(
-                        iv_carrid = 'LH'
-                        iv_connid = '0400' ).
-
-    IF lv_result = abap_true.
-      io_out->write( |El vuelo existe.| ).
-    ELSE.
-      io_out->write( |El vuelo no existe.| ).
-    ENDIF.
-  ENDMETHOD.
 
   METHOD process_element_display.
     DATA(lo_elements) = NEW zcl_lab_06_elements_noa( ).
@@ -101,12 +101,31 @@ CLASS zcl_lab_01_ejec_noa IMPLEMENTATION.
     io_out->write( |Referencia: { ls_object-reference }| ).
   ENDMETHOD.
 
-  METHOD display_constants.
-    io_out->write( |Constante 1: { zcl_lab_06_elements_noa=>c_type_aircraft }| ).
-    io_out->write( |Constante 2: { zcl_lab_06_elements_noa=>c_type_passenger }| ).
-    io_out->write( |Constante 3: { zcl_lab_06_elements_noa=>c_type_flight }| ).
-    io_out->write( |Constante 4: { zcl_lab_06_elements_noa=>c_type_gate }| ).
+
+  METHOD process_flight_check.
+    DATA(lo_flight) = NEW zcl_lab_05_flight_noa( ).
+    DATA(lv_result) = lo_flight->check_flight_exists(
+                        iv_carrid = 'LH'
+                        iv_connid = '0400' ).
+
+    IF lv_result = abap_true.
+      io_out->write( |El vuelo existe.| ).
+    ELSE.
+      io_out->write( |El vuelo no existe.| ).
+    ENDIF.
   ENDMETHOD.
+
+
+  METHOD process_person.
+    DATA(lo_person) = NEW zcl_lab_04_person( ).
+    lo_person->set_age( im_age = 25 ).
+
+    DATA(lv_age) = 0.
+    lo_person->get_age( IMPORTING ex_age = lv_age ).
+
+    io_out->write( |Edad de la persona: { lv_age }| ).
+  ENDMETHOD.
+
 
   METHOD process_student_birthdate.
     DATA(lo_student) = NEW zcl_lab_07_student_noa( ).
@@ -119,6 +138,7 @@ CLASS zcl_lab_01_ejec_noa IMPLEMENTATION.
     " lo_student->birth_date = '19991231'. " ❌ READ-ONLY
   ENDMETHOD.
 
+
   METHOD process_work_record.
     zcl_lab_08_work_record_noa=>open_new_record(
           iv_date       = '20250101'
@@ -126,18 +146,4 @@ CLASS zcl_lab_01_ejec_noa IMPLEMENTATION.
           iv_last_name  = 'Martínez'
           iv_surname    = 'Sosa' ).
   ENDMETHOD.
-
-  METHOD process_account.
-    DATA(lo_account) = NEW zcl_lab_09_account_noa( ).
-
-    " Establecer IBAN
-    lo_account->set_iban( iban = 'DE44500105175407324931' ).
-
-    " Obtener IBAN
-    DATA lv_iban TYPE string.
-    lo_account->get_iban( IMPORTING iban = lv_iban ).
-
-    io_out->write( |IBAN almacenado: { lv_iban }| ).
-  ENDMETHOD.
-
 ENDCLASS.

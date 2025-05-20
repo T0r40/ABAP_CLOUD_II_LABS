@@ -25,11 +25,12 @@ CLASS zcl_lab_06_elements_noa DEFINITION
     DATA: ms_object TYPE ty_elem_objects.
 ENDCLASS.
 
-CLASS zcl_lab_06_elements_noa IMPLEMENTATION.
+
+
+CLASS ZCL_LAB_06_ELEMENTS_NOA IMPLEMENTATION.
+
 
   METHOD set_object.
     ms_object = is_object.
   ENDMETHOD.
-
 ENDCLASS.
-

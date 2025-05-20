@@ -29,7 +29,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_04_ejec_noa IMPLEMENTATION.
+CLASS ZCL_LAB_04_EJEC_NOA IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -39,15 +39,16 @@ CLASS zcl_lab_04_ejec_noa IMPLEMENTATION.
     process_factory_demo( io_out = out ).
   ENDMETHOD.
 
-  METHOD process_flight_interface.
-    DATA(lo_flight) = NEW zcl_lab_26_flights_noa( ).
-    lo_flight->set_connection_id( iv_conn_id = '0400' ).
 
-    DATA(lv_conn_id) = lo_flight->get_connection_id( ).
+  METHOD process_airport_lookup.
+    DATA(lo_flights) = NEW zcl_lab_26_flights_noa( ).
 
-    io_out->write( |Conexión: { lv_conn_id }| ).
+    DATA(ls_airport) = lo_flights->get_airport_data(
+                         iv_airport_id = 'FRA' ).
 
+    io_out->write( |Aeropuerto: { ls_airport-name } ({ ls_airport-city })| ).
   ENDMETHOD.
+
 
   METHOD process_customer_lookup.
 
@@ -59,14 +60,6 @@ CLASS zcl_lab_04_ejec_noa IMPLEMENTATION.
     io_out->write( |Nombre: { ls_customer-first_name }, Apellido: { ls_customer-last_name }| ).
   ENDMETHOD.
 
-  METHOD process_airport_lookup.
-    DATA(lo_flights) = NEW zcl_lab_26_flights_noa( ).
-
-    DATA(ls_airport) = lo_flights->get_airport_data(
-                         iv_airport_id = 'FRA' ).
-
-    io_out->write( |Aeropuerto: { ls_airport-name } ({ ls_airport-city })| ).
-  ENDMETHOD.
 
   METHOD process_factory_demo.
 
@@ -83,4 +76,14 @@ CLASS zcl_lab_04_ejec_noa IMPLEMENTATION.
     io_out->write( |Entrada: { lv_input }| ).
   ENDMETHOD.
 
+
+  METHOD process_flight_interface.
+    DATA(lo_flight) = NEW zcl_lab_26_flights_noa( ).
+    lo_flight->set_connection_id( iv_conn_id = '0400' ).
+
+    DATA(lv_conn_id) = lo_flight->get_connection_id( ).
+
+    io_out->write( |Conexión: { lv_conn_id }| ).
+
+  ENDMETHOD.
 ENDCLASS.

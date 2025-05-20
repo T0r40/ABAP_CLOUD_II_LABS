@@ -12,15 +12,17 @@ CLASS zcl_lab_04_person_noa DEFINITION
     DATA: age TYPE i.
 ENDCLASS.
 
-CLASS zcl_lab_04_person_noa IMPLEMENTATION.
 
-  METHOD set_age.
-    age = iv_age.
-  ENDMETHOD.
+
+CLASS ZCL_LAB_04_PERSON_NOA IMPLEMENTATION.
+
 
   METHOD get_age.
     ev_age = age.
   ENDMETHOD.
 
-ENDCLASS.
 
+  METHOD set_age.
+    age = iv_age.
+  ENDMETHOD.
+ENDCLASS.

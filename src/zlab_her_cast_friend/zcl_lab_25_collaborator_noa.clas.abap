@@ -13,10 +13,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_25_collaborator_noa IMPLEMENTATION.
+CLASS ZCL_LAB_25_COLLABORATOR_NOA IMPLEMENTATION.
+
 
   METHOD get_capital.
     rv_capital = io_company->capital.
   ENDMETHOD.
-
 ENDCLASS.

@@ -13,7 +13,10 @@ CLASS zcl_lab_05_flight_noa DEFINITION
           VALUE(rv_exists) TYPE abap_bool.
 ENDCLASS.
 
-CLASS zcl_lab_05_flight_noa IMPLEMENTATION.
+
+
+CLASS ZCL_LAB_05_FLIGHT_NOA IMPLEMENTATION.
+
 
   METHOD check_flight_exists.
     SELECT SINGLE carrier_id FROM /dmo/flight
@@ -27,6 +30,4 @@ CLASS zcl_lab_05_flight_noa IMPLEMENTATION.
       rv_exists = abap_false.
     ENDIF.
   ENDMETHOD.
-
 ENDCLASS.
-

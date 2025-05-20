@@ -20,10 +20,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_27_factory_noa IMPLEMENTATION.
+CLASS ZCL_LAB_27_FACTORY_NOA IMPLEMENTATION.
+
 
   METHOD merchandise_output.
     rv_merchendise = 'merchandise_output'.
   ENDMETHOD.
-
 ENDCLASS.

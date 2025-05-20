@@ -9,10 +9,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_18_animal_noa IMPLEMENTATION.
+CLASS ZCL_LAB_18_ANIMAL_NOA IMPLEMENTATION.
+
 
   METHOD walk.
     rv_text = 'The animal walks'.
   ENDMETHOD.
-
 ENDCLASS.

@@ -18,15 +18,16 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_02_ejec_noa IMPLEMENTATION.
+CLASS ZCL_LAB_02_EJEC_NOA IMPLEMENTATION.
+
 
   METHOD if_oo_adt_classrun~main.
     process_constructors( io_out = out ).
   ENDMETHOD.
 
+
   METHOD process_constructors.
     DATA(lo_obj) = NEW zcl_lab_10_constructor_noa( ).
     io_out->write( zcl_lab_10_constructor_noa=>log ).
   ENDMETHOD.
-
 ENDCLASS.

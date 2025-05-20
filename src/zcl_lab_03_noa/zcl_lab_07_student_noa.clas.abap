@@ -13,11 +13,12 @@ CLASS zcl_lab_07_student_noa DEFINITION
 
 ENDCLASS.
 
-CLASS zcl_lab_07_student_noa IMPLEMENTATION.
+
+
+CLASS ZCL_LAB_07_STUDENT_NOA IMPLEMENTATION.
+
 
   METHOD set_birth_date.
     birth_date = iv_birth_date.
   ENDMETHOD.
-
 ENDCLASS.
-

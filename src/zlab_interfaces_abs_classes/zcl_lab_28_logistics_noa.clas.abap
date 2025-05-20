@@ -11,14 +11,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_28_logistics_noa IMPLEMENTATION.
+CLASS ZCL_LAB_28_LOGISTICS_NOA IMPLEMENTATION.
 
-  METHOD production_line.
-    rv_production = 'production_line'.
-  ENDMETHOD.
 
   METHOD input_products.
     rv_input = 'input_products'.
   ENDMETHOD.
 
+
+  METHOD production_line.
+    rv_production = 'production_line'.
+  ENDMETHOD.
 ENDCLASS.

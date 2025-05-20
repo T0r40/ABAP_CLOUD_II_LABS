@@ -14,10 +14,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_23_company_noa IMPLEMENTATION.
+CLASS ZCL_LAB_23_COMPANY_NOA IMPLEMENTATION.
+
 
   METHOD constructor.
     me->capital = iv_capital.
   ENDMETHOD.
-
 ENDCLASS.

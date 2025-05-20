@@ -24,19 +24,21 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_14_grid_noa IMPLEMENTATION.
+CLASS ZCL_LAB_14_GRID_NOA IMPLEMENTATION.
+
 
   METHOD constructor.
     super->constructor( iv_view_type = iv_view_type ).
     me->box = iv_box.
   ENDMETHOD.
 
-  METHOD get_view_type.
-    rv_view_type = me->view_type.
-  ENDMETHOD.
 
   METHOD get_box.
     rv_box = me->box.
   ENDMETHOD.
 
+
+  METHOD get_view_type.
+    rv_view_type = me->view_type.
+  ENDMETHOD.
 ENDCLASS.

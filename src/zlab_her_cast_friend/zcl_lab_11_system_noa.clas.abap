@@ -13,10 +13,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_11_system_noa IMPLEMENTATION.
+CLASS ZCL_LAB_11_SYSTEM_NOA IMPLEMENTATION.
+
 
   METHOD get_architecture.
     ev_architecture = me->architecture.
   ENDMETHOD.
-
 ENDCLASS.

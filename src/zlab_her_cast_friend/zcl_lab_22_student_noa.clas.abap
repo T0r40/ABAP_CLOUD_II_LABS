@@ -10,10 +10,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_lab_22_student_noa IMPLEMENTATION.
+CLASS ZCL_LAB_22_STUDENT_NOA IMPLEMENTATION.
+
 
   METHOD assign_student.
     DATA(lo_classroom) = NEW zcl_lab_21_classroom_noa( ).
   ENDMETHOD.
-
 ENDCLASS.
