@@ -1,0 +1,4 @@
+CLASS zcx_lab_57_format_unknown_noa DEFINITION INHERITING FROM cx_static_check PUBLIC.
+ENDCLASS.
+CLASS zcx_lab_57_format_unknown_noa IMPLEMENTATION.
+ENDCLASS.

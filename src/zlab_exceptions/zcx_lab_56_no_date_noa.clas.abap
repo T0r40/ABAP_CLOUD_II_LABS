@@ -1,0 +1,5 @@
+CLASS zcx_lab_56_no_date_noa DEFINITION INHERITING FROM cx_static_check PUBLIC.
+ENDCLASS.
+CLASS zcx_lab_56_no_date_noa IMPLEMENTATION.
+ENDCLASS.
+

@@ -1,0 +1,8 @@
+CLASS zcx_lab_55_auth_iban_noa DEFINITION INHERITING FROM cx_static_check PUBLIC.
+  PUBLIC SECTION.
+ENDCLASS.
+
+CLASS zcx_lab_55_auth_iban_noa IMPLEMENTATION.
+ENDCLASS.
+
+
