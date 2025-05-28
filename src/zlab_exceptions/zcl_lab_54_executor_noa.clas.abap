@@ -25,8 +25,12 @@ CLASS zcl_lab_54_executor_noa DEFINITION
         ,
 
       simulate_resumable_exception
-        IMPORTING out TYPE REF TO if_oo_adt_classrun_out.
+        IMPORTING out TYPE REF TO if_oo_adt_classrun_out
 
+        ,
+
+      simulate_chained_exceptions
+        IMPORTING out TYPE REF TO if_oo_adt_classrun_out.
 ENDCLASS.
 
 
@@ -38,6 +42,7 @@ CLASS zcl_lab_54_executor_noa IMPLEMENTATION.
     simulate_retry_control( out ).
     simulate_cleanup_control( out ).
     simulate_resumable_exception( out ).
+    simulate_chained_exceptions( out ).
   ENDMETHOD.
 
   METHOD simulate_check_user.
@@ -100,6 +105,27 @@ CLASS zcl_lab_54_executor_noa IMPLEMENTATION.
       CATCH zcx_lab_55_auth_iban_noa INTO DATA(lx_iban).
         out->write( '⚠️ Excepción reanudable capturada: ' && lx_iban->get_text( ) ).
 
+    ENDTRY.
+
+  ENDMETHOD.
+
+  METHOD simulate_chained_exceptions.
+
+    DATA(lo_analyzer) = NEW zcl_lab_58_date_analyzer_noa( ).
+
+    TRY.
+        TRY.
+            lo_analyzer->analyze_date( iv_date = '' ).
+          CATCH zcx_lab_56_no_date_noa INTO DATA(lx_no_date).
+            out->write( |⚠️ Excepción: { lx_no_date->get_text( ) }| ).
+
+            IF lx_no_date->previous IS BOUND.
+              out->write( |↪️ Excepción anidada: { lx_no_date->previous->get_text( ) }| ).
+            ENDIF.
+        ENDTRY.
+
+      CATCH zcx_lab_57_format_unknown_noa INTO DATA(lx_format).
+        out->write( |Formato desconocido: { lx_format->get_text( ) }| ).
     ENDTRY.
 
   ENDMETHOD.
