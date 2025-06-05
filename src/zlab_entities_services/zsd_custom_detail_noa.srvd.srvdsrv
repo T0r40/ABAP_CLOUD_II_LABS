@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition para ZCDS_CUSTOM_DETAIL_NOA'
+define service ZSD_CUSTOM_DETAIL_NOA {
+  expose ZCDS_CUSTOM_DETAIL_NOA;
+}
