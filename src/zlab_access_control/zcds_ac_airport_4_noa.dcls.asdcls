@@ -1,0 +1,7 @@
+@EndUserText.label: 'Access control with PFCG authorization'
+@MappingRole: true
+define role ZCDS_AC_AIRPORT_4_NOA {
+  grant select on ZCDS_AIRPORT_4_NOA;
+}
+
+

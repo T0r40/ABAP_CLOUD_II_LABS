@@ -1,0 +1,13 @@
+@EndUserText.label: 'Access control for US and DE airports'
+@MappingRole: true
+define role ZCDS_AC_AIRPORT_MULTI_NOA {
+  grant select on ZCDS_AIRPORT_1_NOA
+    where country = 'US';
+
+  grant select on ZCDS_AIRPORT_2_NOA
+    where country = 'DE';
+    
+  grant select on ZCDS_AIRPORT_3_NOA
+    where (country = 'US' or country = 'DE') and airport_id = 'MUC';
+    
+}

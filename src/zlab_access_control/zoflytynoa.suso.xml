@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SUSO" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TOBJ>
+    <OBJCT>ZOFLYTYNOA</OBJCT>
+    <FIEL1>ACTVT</FIEL1>
+    <OCLSS>CPAE</OCLSS>
+   </TOBJ>
+   <TOBJ_ATTR>
+    <OBJCT>ZOFLYTYNOA</OBJCT>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+   </TOBJ_ATTR>
+   <TOBJT>
+    <LANGU>E</LANGU>
+    <OBJECT>ZOFLYTYNOA</OBJECT>
+    <TTEXT>ZOFLYTYNOA</TTEXT>
+   </TOBJT>
+  </asx:values>
+ </asx:abap>
+</abapGit>
