@@ -1,0 +1,5 @@
+@EndUserText.label: 'Política con aspecto personalizado por usuario y monto'
+@MappingRole: true
+define role zac_custom_aspect_noa {
+  grant select on zcds_auditing_aspect_noa;
+}

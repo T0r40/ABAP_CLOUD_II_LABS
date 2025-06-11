@@ -1,0 +1,7 @@
+@EndUserText.label: 'Política de acceso por creador'
+@MappingRole: true
+define role ZAC_AUDITING_ASPECT_NOA {
+  grant select on ZCDS_AUDITING_ASPECT_NOA
+    where created_by = $session.user and
+    inv_amount > 100;
+}

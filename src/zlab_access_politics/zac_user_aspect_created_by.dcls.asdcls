@@ -1,0 +1,6 @@
+@EndUserText.label: 'Política de acceso por creador'
+@MappingRole: true
+define role ZAC_USER_ASPECT_CREATED_BY {
+  grant select on zcds_com_inv_2_noa
+    where created_by = $session.user;
+}
