@@ -1,0 +1,13 @@
+@Metadata.layer: #INDUSTRY
+annotate view zcds_customer_meta_noa with
+{
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  @UI.selectionField:[{position: 10}]
+  @UI.identification:[{position: 10}]
+  customerid;
+
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+  @UI.selectionField:[{position: 20}]
+  @UI.identification:[{position: 20}]
+  city;
+}

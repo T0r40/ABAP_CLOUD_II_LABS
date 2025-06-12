@@ -1,0 +1,4 @@
+define view entity buffer on ZCDS_CUSTOMER_buffer_noa
+  layer core
+  type single
+
