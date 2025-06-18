@@ -1,0 +1,3 @@
+@EndUserText.label: 'Tipo de estado de pedido'
+define type zty_cds_st_order_noa : abap.char(10);
+ 

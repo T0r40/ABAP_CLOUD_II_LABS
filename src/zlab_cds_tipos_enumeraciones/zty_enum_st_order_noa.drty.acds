@@ -1,0 +1,15 @@
+@EndUserText.label: 'Enum estados de pedido'
+define type zty_enum_st_order_noa : abap.char(2) enum
+{
+  @EndUserText.label: 'Draft (Inicial)'
+  draft      = initial;
+  @EndUserText.label: 'Processing'
+  processing = '02';
+  @EndUserText.label: 'Shipped'
+  shipped    = '03';
+  @EndUserText.label: 'Delivered'
+  delivered  = '04';
+  @EndUserText.label: 'Cancelled'
+  cancelled  = '05';
+}
+
