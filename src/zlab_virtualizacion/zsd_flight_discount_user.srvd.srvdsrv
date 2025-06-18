@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Flight Discount'
+define service zsd_flight_discount_user {
+  expose zcds_proj_virtual_disc_noa;
+}
